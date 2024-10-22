@@ -1,0 +1,33 @@
+<!-- task/task-list.component.html -->
+<div class="container mt-4">
+  <h3 class="mb-3">Task List</h3>
+  <ul class="list-group">
+    <li
+      *ngFor="let task of tasks; let i = index"
+      class="list-group-item d-flex justify-content-between align-items-center"
+      [ngClass]="{'list-group-item-success': task.status === 'complete'}"
+    >
+      <div>
+        <span [ngClass]="{'text-decoration-line-through': task.status === 'complete'}">
+          {{ task.title }}
+        </span>
+        <ng-container [ngSwitch]="task.type">
+          <span *ngSwitchCase="'work'" class="badge badge-primary ml-2">🛠️ Work</span>
+          <span *ngSwitchCase="'personal'" class="badge badge-info ml-2">🏠 Personal</span>
+          <span *ngSwitchCase="'shopping'" class="badge badge-warning ml-2">🛒 Shopping</span>
+          <span *ngSwitchDefault class="badge badge-secondary ml-2">❓ Other</span>
+        </ng-container>
+      </div>
+      <div>
+        <span *ngIf="task.status === 'complete'" class="badge badge-success">✔️ Completed</span>
+        <button
+          *ngIf="task.status === 'pending'"
+          class="btn btn-sm btn-outline-primary ml-2"
+          (click)="completeTask(task)"
+        >
+          Complete
+        </button>
+      </div>
+    </li>
+  </ul>
+</div>

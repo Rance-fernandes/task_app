@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Task } from './task/task.model';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'task';
+  handleTaskCompleted(task: Task) {
+    console.log('Task completed:', task);
+  }
 }

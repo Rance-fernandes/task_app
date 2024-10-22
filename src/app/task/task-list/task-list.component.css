@@ -1,0 +1,14 @@
+/* task/task-list.component.css */
+.list-group-item-success {
+  background-color: #d4edda !important;
+  color: #155724;
+}
+
+.text-decoration-line-through {
+  text-decoration: line-through;
+  color: #6c757d;
+}
+
+.container {
+  max-width: 600px;
+}
